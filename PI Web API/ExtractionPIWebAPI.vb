@@ -490,7 +490,7 @@ Function GetAPIResponse(ByVal url As String) As String
   
   ' Define the Basic Authentication credentials
   username = "kaike_carvalho@oxy.com"
-  password = "$5YT26#Y3$5YT26#"
+  password = ""
   
   ' Create an instance of the XMLHTTP object
   Set xmlHttp = CreateObject("MSXML2.XMLHTTP")
