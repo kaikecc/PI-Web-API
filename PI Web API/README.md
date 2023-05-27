@@ -10,8 +10,8 @@ Para executar este script, é necessário ter o seguinte:
 * Microsoft Excel (com suporte ao VBA)
 * Acesso a uma API Web PI
 * Referências adicionadas no Editor VBA para:
-* Microsoft Scripting Runtime
-* Microsoft WinHTTP Services, versão 5.1
+  * Microsoft Scripting Runtime
+  * Microsoft WinHTTP Services, versão 5.1
 
 ## Utilização
 
