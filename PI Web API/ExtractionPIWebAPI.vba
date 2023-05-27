@@ -3,7 +3,7 @@
 ' To use module JsonConverter, you must add a reference to the Microsoft Scripting Runtime library: https://github.com/VBA-tools/VBA-JSON
 
 
-Sub ExtractPIWebAPI(endpoint As String)
+Sub ExtractPIWebAPI(endpoint, username, password As String)
 
 Application.Calculation = IIf(False, xlCalculationManual, xlCalculationAutomatic)
 Application.EnableEvents = Not (False)
