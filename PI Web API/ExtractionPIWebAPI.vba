@@ -3,7 +3,7 @@
 ' To use module JsonConverter, you must add a reference to the Microsoft Scripting Runtime library: https://github.com/VBA-tools/VBA-JSON
 
 
-Sub ExtractPIWebAPI(endpoint, username, password As String)
+Sub ExtractPIWebAPI(endpoint As String)
 
 Application.Calculation = IIf(False, xlCalculationManual, xlCalculationAutomatic)
 Application.EnableEvents = Not (False)
@@ -37,8 +37,6 @@ Dim dict_children As Dictionary
 Dim Name As Dictionary
 Dim category_concat As String
 Dim ws As Worksheet
-Dim TagGood As Integer
-Dim TagBad As Integer
 
 On Error Resume Next
 Set ws = ThisWorkbook.Worksheets("PI Tags")
@@ -96,7 +94,7 @@ header(15) = "TimeStamp"
 
 ws.Range("A" & 1 & ":P" & 1).Value = header ' salva os dados de cabeçalho na planilha na linha 1
 
-json = GetAPIResponse(endpoint, username, password)   
+json = GetAPIResponse(endpoint)   
   
 Set dict = JsonConverter.ParseJson(json)
 Set Items = dict("Items")
@@ -342,7 +340,12 @@ Function Stream_StringToBinary(ByVal sText As String) As Variant
   Stream_StringToBinary = ado.Read
 End Function
 
-Function GetAPIResponse(ByVal url, username, password  As String) As String
+Function GetAPIResponse(ByVal url As String) As String
+
+    Dim username As String
+    Dim password As String
+    username = ""
+    password = ""
  
  ' This function returns the response from a URL using Basic Authentication
   Dim xmlHttp As Object 
