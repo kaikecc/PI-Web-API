@@ -1,7 +1,7 @@
 
 # Projeto PI Web API com VBA
 
-Este projeto é um script em VBA (Visual Basic for Applications) desenvolvido para extrair dados de uma API Web PI e gravar esses dados em uma planilha do Excel. Ele usa autenticação básica para se comunicar com a API Web PI e extrair os dados. O objetivo desse código não é substituir o PI Builder ou PI DataLink, mas gerar insights para automações usando macros em VBA.
+Este projeto é um script em VBA (Visual Basic for Applications) desenvolvido para extrair dados de uma PI Web API e gravar esses dados em uma planilha do Excel. Ele usa autenticação básica para se comunicar com a PI Web API e extrair os dados. O objetivo desse código não é substituir o PI Builder ou PI DataLink, mas gerar insights para automações usando macros em VBA.
 
 ## Pré-requisitos
 
@@ -18,7 +18,7 @@ Para executar este script, é necessário ter o seguinte:
 
 O script define duas sub-rotinas principais:
 
-1. **ExtractPIWebAPI(endpoint As String):** Esta é a sub-rotina principal que coordena a extração de dados da API Web PI e a gravação desses dados na planilha do Excel. Esta sub-rotina leva um argumento de entrada:
+1. **ExtractPIWebAPI(endpoint As String):** Esta é a sub-rotina principal que coordena a extração de dados da PI Web API e a gravação desses dados na planilha do Excel. Esta sub-rotina leva um argumento de entrada:
 
    * endpoint: A URL do início da hierarquia do PI Web API da qual se pretende os extrair dados, exemplo: https://myserver/piwebapi/webid/elements
 
