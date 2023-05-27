@@ -48,4 +48,4 @@ Certifique-se de que o nome de usuário e a senha fornecidos têm as permissões
 
 Este código não foi otimizado para grandes volumes de dados e pode demorar para executar em grandes conjuntos de dados. Se estiver lidando com grandes volumes de dados, pode ser necessário otimizar ou modificar este script para melhor desempenho.
 
-Por último, este script foi desenvolvido para uso com uma API Web PI específica e pode não funcionar corretamente com todas as PI Web API. Se estiver tendo problemas, verifique se a PI Web API está funcionando corretamente e se os dados que você está tentando extrair estão disponíveis.
+Por último, este script foi desenvolvido para uso com uma  PI Web API específica e pode não funcionar corretamente com todas as PI Web API. Se estiver tendo problemas, verifique se a PI Web API está funcionando corretamente e se os dados que você está tentando extrair estão disponíveis.
