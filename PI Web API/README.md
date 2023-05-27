@@ -8,7 +8,8 @@ Este projeto é um script em VBA (Visual Basic for Applications) desenvolvido pa
 Para executar este script, é necessário ter o seguinte:
 
 * Microsoft Excel (com suporte ao VBA)
-* Acesso a uma API Web PI
+* Acesso a uma PI Web API
+* Importação do arquivo **JsonConverter**
 * Referências adicionadas no Editor VBA para:
   * Microsoft Scripting Runtime
   * Microsoft WinHTTP Services, versão 5.1
