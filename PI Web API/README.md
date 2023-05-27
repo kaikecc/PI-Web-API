@@ -18,13 +18,15 @@ Para executar este script, é necessário ter o seguinte:
 
 O script define duas sub-rotinas principais:
 
-1. **ExtractPIWebAPI(endpoint, username, password As String):** Esta é a sub-rotina principal que coordena a extração de dados da API Web PI e a gravação desses dados na planilha do Excel. Esta sub-rotina leva três argumentos de entrada:
+1. **ExtractPIWebAPI(endpoint As String):** Esta é a sub-rotina principal que coordena a extração de dados da API Web PI e a gravação desses dados na planilha do Excel. Esta sub-rotina leva um argumento de entrada:
 
    * endpoint: A URL do início da hierarquia do PI Web API da qual se pretende os extrair dados, exemplo: https://myserver/piwebapi/webid/elements
+
+
+2. **GetAPIResponse(url As String) As String:** Esta função auxiliar é usada pela sub-rotina principal para fazer solicitações à PI Web API e obter respostas. A função também leva um argumento de entrada, e retorna a resposta da PI Web API como uma string. Necessita definir as crendeciais nessa função.    
+
    * username: O nome de usuário para autenticação na PI Web API
    * password: A senha para autenticação na PI Web API
-
-2. **GetAPIResponse(url, username, password As String) As String:** Esta função auxiliar é usada pela sub-rotina principal para fazer solicitações à PI Web API e obter respostas. A função também leva três argumentos de entrada (os mesmos que ExtractPIWebAPI), e retorna a resposta da PI Web API como uma string.
 
 O script também define duas funções adicionais, Base64Encode(sText As String) As String e Stream_StringToBinary(sText As String) As Variant, que são usadas para codificar a string de autenticação em Base64.
 
