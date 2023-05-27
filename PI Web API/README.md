@@ -20,9 +20,9 @@ O script define duas sub-rotinas principais:
 
 1. **ExtractPIWebAPI(endpoint, username, password As String):** Esta é a sub-rotina principal que coordena a extração de dados da API Web PI e a gravação desses dados na planilha do Excel. Esta sub-rotina leva três argumentos de entrada:
 
-* endpoint: A URL da API Web PI da qual extrair dados
-* username: O nome de usuário para autenticação na API Web PI
-* password: A senha para autenticação na API Web PI
+ * endpoint: A URL da API Web PI da qual extrair dados
+ * username: O nome de usuário para autenticação na API Web PI
+ * password: A senha para autenticação na API Web PI
 
 2. **GetAPIResponse(url, username, password As String) As String:** Esta função auxiliar é usada pela sub-rotina principal para fazer solicitações à API Web PI e obter respostas. A função também leva três argumentos de entrada (os mesmos que ExtractPIWebAPI), e retorna a resposta da API Web PI como uma string.
 
