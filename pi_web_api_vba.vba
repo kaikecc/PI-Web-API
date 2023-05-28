@@ -273,7 +273,8 @@ Sub ExtractPIWebAPI(endpoint As String)
 
         ElseIf Items(aux_branch)("HasChildren") = False And count_node <= 1 Then ' Verifica se o elemento não tem filhos e não tem "irmãos", se sim volta no loop para percorrer os "pais"
             
-            If nodes(0) = branch(0) And nodes(1) = branch(1) Then  ' Verifica se o elemento é o último da hierarquia          
+            ' Essa condição é importante para o controle de quais nós e ramos já foram percorridos
+            If nodes(0) = branch(0) And nodes(1) = branch(1) Then           
                 exit_hierarchy = False ' sai do while loop da hierarquia
             Else
                 If count_node = 0 Then ' 
@@ -300,7 +301,8 @@ Sub ExtractPIWebAPI(endpoint As String)
                         Wend
                         
                         branch(UBound(branch)) = branch(UBound(branch)) + 1
-                End If            
+                End If 
+            ' Fim da verificação de quais nós e ramos já foram percorridos e ajustes dos array de controle          
                 
             aux_branch = branch(UBound(branch))              
                 
@@ -314,7 +316,7 @@ Sub ExtractPIWebAPI(endpoint As String)
         End If  
     Wend
 
-    ' Retorna o status da execução
+    ' Habilitação dos recursos do Excel
     Application.Calculation = IIf(True, xlCalculationManual, xlCalculationAutomatic)
     Application.EnableEvents = Not (True)
     Application.ScreenUpdating = Not (True)
