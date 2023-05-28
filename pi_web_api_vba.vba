@@ -5,12 +5,14 @@
 
 Sub ExtractPIWebAPI(endpoint As String)
 
+    ' Desabilita recursos do Excel para otimizar o desempenho da execução do script
 Application.Calculation = IIf(False, xlCalculationManual, xlCalculationAutomatic)
 Application.EnableEvents = Not (False)
 Application.ScreenUpdating = Not (False)
 ActiveSheet.DisplayPageBreaks = Not (False)
 Application.EnableEvents = False
 
+    ' Cria variáveis globais 
 Dim json As String
 Dim dict As Object
 Dim dict_analyses As Object
@@ -38,11 +40,12 @@ Dim Name As Dictionary
 Dim category_concat As String
 Dim ws As Worksheet
 
+    ' Verifica se existe uma aba chamada PI Tags
 On Error Resume Next
 Set ws = ThisWorkbook.Worksheets("PI Tags")
 On Error GoTo 0
 
-' Se a planilha não existe, criar uma nova
+    ' Se a aba não existor, então criar uma nova
 If ws Is Nothing Then
     Set ws = ThisWorkbook.Worksheets.Add
     ws.Name = "PI Tags"   
@@ -53,7 +56,7 @@ End If
 Dim columns As New Collection
 Dim i As Integer
 
-' Cria as colunas na planilha    
+        ' Cria as itens itens de referências provinientes da API    
 columns.Add "Path" ' A - 1
 columns.Add "Name" ' B - 2
 columns.Add "Element" ' C - 3
@@ -72,7 +75,7 @@ columns.Add "ConfigString" ' N - 15
 columns.Add "Good" ' O - 16
 columns.Add "Timestamp" ' P - 17
 
-' Cria o cabeçalho na planilha
+        ' Cria o cabeçalho na planilha PI Tags semelhante ao PI Builder
 Dim header(16) As String
 header(0) = "Parent"
 header(1) = "Name"
@@ -94,6 +97,7 @@ header(15) = "TimeStamp"
 
 ws.Range("A" & 1 & ":P" & 1).Value = header ' salva os dados de cabeçalho na planilha na linha 1
 
+        ' Através do endpoint do primeiro elemento da hierarquia a ser explorada
 json = GetAPIResponse(endpoint)   
   
 Set dict = JsonConverter.ParseJson(json)
@@ -101,6 +105,7 @@ Set Items = dict("Items")
 Set Link = dict("Links")
 Link_return = Link("First")
 
+                          
 Dim nodes() As Integer '
 Dim branch() As Integer '
 Dim Link_tree() As String '
