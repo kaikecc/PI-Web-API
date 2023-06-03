@@ -139,8 +139,8 @@ Sub ExtractPIWebAPI(endpoint As String)
     ' Inicializa as variáveis para exportar na planilha PI Tags
     exit_hierarchy = True
     element_mode = True
-    attribute_mode = False
-    children_mode = False
+    attribute_mode = True
+    children_mode = True
 
     While exit_hierarchy ' Loop para percorrer a hierarquia de elementos
         
@@ -252,6 +252,7 @@ Sub ExtractPIWebAPI(endpoint As String)
                 Set Items_Elements = dict_elements("Items")
         
                 aux_branch = 1
+                count_branch = 1
                 ReDim Preserve nodes(UBound(nodes) + 1)
                 nodes(UBound(nodes)) = Items_Elements.Count
                 count_node = Items_Elements.Count
@@ -274,46 +275,41 @@ Sub ExtractPIWebAPI(endpoint As String)
         ElseIf Items(aux_branch)("HasChildren") = False And count_node <= 1 Then ' Verifica se o elemento não tem filhos e não tem "irmãos", se sim volta no loop para percorrer os "pais"
             
             ' Essa condição é importante para o controle de quais nós e ramos já foram percorridos
-            If nodes(0) = branch(0) And nodes(1) = branch(1) Then           
+            If AreArraysEqual(nodes, branch) = True Then           
                 exit_hierarchy = False ' sai do while loop da hierarquia
             Else
-                If count_node = 0 Then ' 
-                        branch(UBound(branch)) = branch(UBound(branch)) + 1
-                Else
+               
+                                               
+                Dim check_size_array As Boolean
+                check_size_array = False
+                
+                ' Check if the size of the array is zero
+                While Not (check_size_array):
+                    If branch(UBound(branch)) = nodes(UBound(nodes)) Then '
+                    
                         ReDim Preserve branch(0 To UBound(branch) - 1)
                         ReDim Preserve nodes(0 To UBound(nodes) - 1)
-                        ReDim Preserve Link_tree(0 To UBound(Link_tree) - 1) 
-                        
-                        Dim check_size_array As Boolean
-                        check_size_array = False
-                        
-                        ' Check if the size of the array is zero
-                        While Not (check_size_array):
-                            If branch(UBound(branch)) = nodes(UBound(nodes)) Then '
-                            
-                                ReDim Preserve branch(0 To UBound(branch) - 1)
-                                ReDim Preserve nodes(0 To UBound(nodes) - 1)
-                                ReDim Preserve Link_tree(0 To UBound(Link_tree) - 1)
-                                check_size_array = False                        
-                            Else
-                                check_size_array = True                        
-                            End If
-                        Wend
-                        
-                        branch(UBound(branch)) = branch(UBound(branch)) + 1
-                End If 
-            ' Fim da verificação de quais nós e ramos já foram percorridos e ajustes dos array de controle          
+                        ReDim Preserve Link_tree(0 To UBound(Link_tree) - 1)
+                        check_size_array = False                        
+                    Else
+                        check_size_array = True                        
+                    End If
+                Wend
                 
-            aux_branch = branch(UBound(branch))              
-                
-            Set dict = JsonConverter.ParseJson(GetAPIResponse(Link_tree(UBound(Link_tree))))        
-            Set Items = dict("Items")
-            Link_tree(UBound(Link_tree)) = dict("Links")("First")        
-            count_branch = 1
-            count_node = 0             
-                
+                branch(UBound(branch)) = branch(UBound(branch)) + 1
+        
+                ' Fim da verificação de quais nós e ramos já foram percorridos e ajustes dos array de controle          
+                    
+                aux_branch = branch(UBound(branch))              
+                    
+                Set dict = JsonConverter.ParseJson(GetAPIResponse(Link_tree(UBound(Link_tree))))        
+                Set Items = dict("Items")
+                Link_tree(UBound(Link_tree)) = dict("Links")("First")        
+                count_branch = 1
+                count_node = 0             
             End If 
-        End If  
+        End If 
+         
     Wend
 
     ' Habilitação dos recursos do Excel
