@@ -1,50 +1,94 @@
-# PI Web API Project with VBA
+# VBA Helper Functions for API Integration
 
-This project is a VBA (Visual Basic for Applications) script developed to extract data from a PI Web API and write that data into an Excel spreadsheet. It uses basic authentication to communicate with the PI Web API and extract the data. The goal of this code is not to replace PI Builder or PI DataLink but to generate insights for automations using VBA macros.
+This README provides an overview and usage instructions for a set of VBA helper functions designed to assist with API integration, including Base64 encoding, string-to-binary conversion, and making HTTP GET requests to an API endpoint.
 
-## Prerequisites
+## Functions Overview
 
-To run this script, you need the following:
+1. Base64Encode
+This function encodes a given string into Base64 format.
 
-* Microsoft Excel (with VBA support)
-* Access to a PI Web API
-* Import the **JsonConverter** file
-* Added references in the VBA Editor for:
-  * Microsoft Scripting Runtime
-  * Microsoft WinHTTP Services, version 5.1
+Prototype:
 
-## Usage
+```vba
+Function Base64Encode(ByVal sText As String) As String
+```
 
-The script defines several main subroutines and functions:
+Parameters:
 
-1. **ExtractPIWebAPI(endpoint As String):** This is the main subroutine that coordinates the extraction of data from the PI Web API and writes that data into the Excel spreadsheet.
+* sText (String): The input string to encode.
+  
+Returns:
 
-2. **Base64Encode(ByVal sText As String) As String:** This function encodes a string in Base64.
+* (String): The Base64-encoded string.
+  
+Example:
 
-3. **Stream_StringToBinary(ByVal sText As String) As Variant:** This function converts a string to binary format.
+```vba
+Dim encodedString As String
+encodedString = Base64Encode("Hello, World!")
+```
 
-4. **GetAPIResponse(ByVal url As String) As String:** This function sends an HTTP GET request to the specified URL using basic authentication and returns the response.
+Details:
 
-## How to Run the Script
+This function uses an XML DOMDocument to convert the input string into a binary stream and then encodes it into Base64.
 
-To run the script:
+Error Handling:
 
-1. Open Excel and access the VBA Editor (Shortcut: ALT + F11).
-2. In the VBA Editor, import this script.
-3. Add the necessary references (Microsoft Scripting Runtime and Microsoft WinHTTP Services, version 5.1) through the "Tools" -> "References" menu.
-4. In your VBA code, call the `ExtractPIWebAPI` subroutine with the correct endpoint.
-5. Run your VBA code.
+If an error occurs during encoding, the function returns an error message.
 
-When executed, the script extracts data from the specified PI Web API, processes that data, and writes the results into the "PI Tags" worksheet of the current Excel file.
 
-## Considerations
+2. Stream_StringToBinary
+This function converts a given string into a binary stream.
 
-Ensure that the provided username and password have the correct permissions to access the data in the PI Web API.
+Prototype:
 
-This code is not optimized for large volumes of data and may take time to execute on large datasets. If you are dealing with large volumes of data, you may need to optimize or modify this script for better performance.
+```vba
+Function Stream_StringToBinary(ByVal sText As String) As Variant
+```
 
-Finally, this script was developed for use with a specific PI Web API and may not work correctly with all PI Web APIs. If you are having issues, check if the PI Web API is functioning correctly and if the data you are trying to extract is available.
+Parameters:
 
-## Example Code Snippet
+sText (String): The input string to convert.
+Returns:
 
-Here is a snippet of the main subroutine:
+(Variant): The binary stream representation of the input string.
+
+Example:
+
+```vba
+Dim binaryStream As Variant
+binaryStream = Stream_StringToBinary("Hello, World!")
+```
+
+Details:
+
+This function uses an ADO Stream object to write the input string and then reads it back as a binary stream.
+
+Error Handling:
+
+If an error occurs during the conversion, the function returns a null value.
+
+3. GetAPIResponse
+   
+This function sends an HTTP GET request to an API endpoint and returns the response and status code.
+
+Prototype:
+
+```vba
+Function GetAPIResponse(ByVal URL As String) As String()
+```
+
+Parameters:
+
+URL (String): The URL of the API endpoint.
+Returns:
+
+(String Array): An array containing the API response and status code.
+
+Example:
+
+
+```vba
+Dim response() As String
+response = GetAPIResponse("https://api.example.com/piwebapi/")
+```
