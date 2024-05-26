@@ -18,7 +18,7 @@ section {
   position: relative;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Verdana', sans-serif;
   color: #049A9A;
   margin: 0;
@@ -37,6 +37,16 @@ h2 {
 h3 {
   font-size: 1.75em;
   margin-bottom: 0.5em;
+}
+
+h4 {
+  font-size: 1.75em;
+  margin-bottom: 0.5em;
+  text-align: center; /* Centraliza o texto do h4 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 ul {
@@ -151,11 +161,10 @@ img.search-img {
 
 <div class="watermark">kaikecastro</div>
 
-# Accessing the <span style="color: blue">PI Web API</span> with Python
+<h4 class="slide-title">Accessing the <span style="color: blue;">PI Web API</span> with Python</h4>
 
 <a href="https://github.com/kaikecc"><img src="img/Sources-github-logo.drawio.png" class="github-img" alt="GitHub"></a>
 <a href="https://www.linkedin.com/in/kaikecastro/"><img src="img/Sources-linkedIn-logo.drawio.png" class="linkedIn-img" alt="LinkedIn"></a>
-
 <a href="https://docs.aveva.com/"><img src="img/af.png" class="vision-img" alt="PI Vision"></a>
 
 ---
@@ -173,7 +182,9 @@ This presentation will guide you on how to access and manipulate data using the 
 <a href="https://www.linkedin.com/in/kaikecastro/"><img src="img/Sources-linkedIn-logo.drawio.png" class="linkedIn-img" alt="LinkedIn"></a>
 
 ---
+
 <div class="watermark">kaikecastro</div>
+
 <h1 class="slide-title">PI Web API</h1>
 
 <!-- Conteúdo -->
@@ -191,15 +202,19 @@ This presentation will guide you on how to access and manipulate data using the 
 </div>
 
 ---
+
 <div class="watermark">kaikecastro</div>
+
 <h1 class="slide-title">Home Web API</h1>
 
 <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
   <img src="img/web_api.png" alt="PI Web API" style="max-width: 100%; height: auto;">
 </div>
 
----
+<a href="https://github.com/kaikecc"><img src="img/Sources-github-logo.drawio.png" class="github-img" alt="GitHub"></a>
+<a href="https://www.linkedin.com/in/kaikecastro/"><img src="img/Sources-linkedIn-logo.drawio.png" class="linkedIn-img" alt="LinkedIn"></a>
 
+---
 
 <div class="watermark">kaikecastro</div>
 
@@ -214,6 +229,7 @@ This presentation will guide you on how to access and manipulate data using the 
 <a href="https://www.linkedin.com/in/kaikecastro/"><img src="img/Sources-linkedIn-logo.drawio.png" class="linkedIn-img" alt="LinkedIn"></a>
 
 ---
+
 <div class="watermark">kaikecastro</div>
 
 ## Key Principles of PI Web API
@@ -242,6 +258,7 @@ This presentation will guide you on how to access and manipulate data using the 
 <a href="https://www.linkedin.com/in/kaikecastro/"><img src="img/Sources-linkedIn-logo.drawio.png" class="linkedIn-img" alt="LinkedIn"></a>
 
 ---
+
 <div class="watermark">kaikecastro</div>
 
 <h2 style="font-size: 1.5em;">Code Example</h2>
@@ -269,4 +286,3 @@ if response.status_code == 200:
     print(data)
 else:
     print(f"Failed to fetch data. Status code: {response.status_code}")
-```
