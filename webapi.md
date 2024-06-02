@@ -104,6 +104,15 @@ img.vision-img {
   margin-left: 10px;
 }
 
+img.da-img {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 10px;
+  left: 175px;
+  margin-left: 10px;
+}
+
 img.search-img {
   width: 680px;
   height: 680px;
@@ -116,6 +125,14 @@ img.search-img {
 .content {  
   margin-top: -500px;
   z-index: 1;
+}
+
+.title-only{
+   text-align: center;
+  margin-top: 0px;  /* Ajuste o valor para ajustar a posição do título */
+  margin-bottom: auto;
+  font-size: 3rem;  /* Ajuste o valor para alterar o tamanho do título */
+
 }
 
 .slide-title {
@@ -161,11 +178,13 @@ img.search-img {
 
 <div class="watermark">kaikecastro</div>
 
-<h4 class="slide-title">Accessing the <span style="color: blue;">PI Web API</span> with Python</h4>
+<h4 class="title-only">Accessing the <span style="color: blue;">PI Web API</span> with Python</h4>
 
 <a href="https://github.com/kaikecc"><img src="img/Sources-github-logo.drawio.png" class="github-img" alt="GitHub"></a>
 <a href="https://www.linkedin.com/in/kaikecastro/"><img src="img/Sources-linkedIn-logo.drawio.png" class="linkedIn-img" alt="LinkedIn"></a>
 <a href="https://docs.aveva.com/"><img src="img/af.png" class="vision-img" alt="PI Vision"></a>
+
+<a href="https://docs.aveva.com/"><img src="img/da.jpg" class="da-img" alt="PI Vision"></a>
 
 ---
 
@@ -201,29 +220,21 @@ This presentation will guide you on how to access and manipulate data using the 
   </div>
 </div>
 
----
 
-<div class="watermark">kaikecastro</div>
-
-<h1 class="slide-title">Home Web API</h1>
-
-<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-  <img src="img/web_api.png" alt="PI Web API" style="max-width: 100%; height: auto;">
-</div>
-
-<a href="https://github.com/kaikecc"><img src="img/Sources-github-logo.drawio.png" class="github-img" alt="GitHub"></a>
-<a href="https://www.linkedin.com/in/kaikecastro/"><img src="img/Sources-linkedIn-logo.drawio.png" class="linkedIn-img" alt="LinkedIn"></a>
 
 ---
 
 <div class="watermark">kaikecastro</div>
 
-## Why Use the PI Web API?
 
-* **Automate Data Retrieval:** Fetch and process PI System data programmatically.
-* **Data Integration:** Integrate PI data with other applications and systems.
-* **Custom Dashboards:** Build custom dashboards based on your specific needs.
-* **Scheduled Tasks:** Run automated tasks like data extraction and analysis at regular intervals.
+<h1 class="slide-title">Why Use the PI Web API?</h1>
+
+<ul style="font-size: 0.9em;">
+  <li><strong>Secure and Efficient Data Access:</strong> The PI Web API uses HTTPS for secure communication and supports OAuth 2.0 for authentication. Its stateless and resource-oriented design ensures efficient and scalable data retrieval and manipulation.</li>
+  <li><strong>Easy Integration and Interoperability:</strong> By using JSON for data interchange, the PI Web API facilitates seamless integration with various programming languages and systems, enhancing interoperability across applications..</li>
+  <li><strong>Dynamic and Discoverable Resources:</strong> The API leverages hypermedia links (HATEOAS) to navigate resources, allowing client applications to dynamically discover and interact with resources without hard-coding URLs..</li>
+  <li><strong>Advanced Data Handling Capabilities:</strong> It provides comprehensive read and write access to PI and AF data, supports batch operations, ad-hoc stream sets, and caches AF data for performance optimization, accommodating complex data retrieval and processing scenarios.</li>
+</ul>
 
 <a href="https://github.com/kaikecc"><img src="img/Sources-github-logo.drawio.png" class="github-img" alt="GitHub"></a>
 <a href="https://www.linkedin.com/in/kaikecastro/"><img src="img/Sources-linkedIn-logo.drawio.png" class="linkedIn-img" alt="LinkedIn"></a>
@@ -241,6 +252,19 @@ This presentation will guide you on how to access and manipulate data using the 
   <li><strong>Uses HTTP Verbs:</strong> GET, POST, PUT, PATCH, DELETE for standard CRUD operations.</li>
   <li><strong>JSON Format:</strong> Data exchanged in easy-to-parse JSON, compatible with various programming languages.</li>
 </ul>
+
+---
+
+<div class="watermark">kaikecastro</div>
+
+<h1 class="slide-title">Home Web API</h1>
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+  <img src="img/web_api.png" alt="PI Web API" style="max-width: 100%; height: auto;">
+</div>
+
+<a href="https://github.com/kaikecc"><img src="img/Sources-github-logo.drawio.png" class="github-img" alt="GitHub"></a>
+<a href="https://www.linkedin.com/in/kaikecastro/"><img src="img/Sources-linkedIn-logo.drawio.png" class="linkedIn-img" alt="LinkedIn"></a>
 
 ---
 
